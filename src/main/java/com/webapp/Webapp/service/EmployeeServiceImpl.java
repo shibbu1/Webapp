@@ -11,10 +11,14 @@ import java.util.List;
 public class EmployeeServiceImpl implements EmployeeService {
 
 
+
+
     @Autowired
     private EmployeeRepository repo;
 
-
+    public EmployeeServiceImpl(EmployeeRepository repo) {
+        this.repo = repo;
+    }
 
     @Override
     public Employee saveEmployee(Employee emp) {
