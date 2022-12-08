@@ -3,27 +3,16 @@ package com.webapp.Webapp.service;
 
 import com.webapp.Webapp.model.Employee;
 import com.webapp.Webapp.repository.EmployeeRepository;
-import org.assertj.core.api.FactoryBasedNavigableListAssert;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import static com.webapp.Webapp.model.Employee.*;
-import static org.assertj.core.api.FactoryBasedNavigableListAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 //this annotations is used to store mock data in repo
 @ExtendWith(MockitoExtension.class)
@@ -79,7 +68,7 @@ class EmployeeServiceImplTest {
     @Test
     void findEmpById() {
 
-        Employee empTest= new Employee(12,"sdfsd",3432,"fdsf");
+        Employee empTest= new Employee(12,"sdfsd",3432,"fdsf","ewrwr","asdas");
 
              //  empTest.setEmpId(12);
              //  empTest.setEmpName("Ankur");
@@ -97,7 +86,7 @@ class EmployeeServiceImplTest {
 
     @Test
     void updateEmployee() {
-        Employee empTest= new Employee(12,"sdfsd",3432,"fdsf");
+        Employee empTest= new Employee(12,"sdfsd",3432,"fdsf","ewrwr","asdas");
         repo.save(empTest);
         empTest.setEmpName("sssss");
         empTest.setEmpNum(342);
@@ -112,7 +101,7 @@ class EmployeeServiceImplTest {
     @Test
     void deleteEmployee() {
 
-        Employee empTest= new Employee(12,"sdfsd",3432,"fdsf");
+        Employee empTest= new Employee(12,"sdfsd",3432,"fdsf","ewrwr","asdas");
         repo.save(empTest);
         repo.deleteById(empTest.getEmpId());
 

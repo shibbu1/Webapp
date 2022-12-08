@@ -1,29 +1,38 @@
 package com.webapp.Webapp.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Employee {
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int empId;
     private String empName;
     private long empNum;
 
     private String empCity;
 
+    private String username;
+
+    private String password;
+
     public Employee() {
 
     }
 
-    public Employee(int empId, String empName, long empNum, String empCity) {
+
+
+    public Employee(int empId, String empName, long empNum, String empCity,String username, String password) {
         this.empId = empId;
         this.empName = empName;
         this.empNum = empNum;
         this.empCity = empCity;
+        this.username = username;
+        this.password = password;
     }
 
 
@@ -41,6 +50,22 @@ public class Employee {
 
     public void setEmpName(String empName) {
         this.empName = empName;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public long getEmpNum() {
@@ -67,8 +92,11 @@ public class Employee {
                 ", empName='" + empName + '\'' +
                 ", empNum=" + empNum +
                 ", empCity='" + empCity + '\'' +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 
 
-}
+    }
+
