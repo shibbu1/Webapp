@@ -1,6 +1,7 @@
 package com.webapp.Webapp.service;
 
 
+import com.webapp.Webapp.model.Department;
 import com.webapp.Webapp.model.Employee;
 import com.webapp.Webapp.repository.EmployeeRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -68,7 +69,7 @@ class EmployeeServiceImplTest {
     @Test
     void findEmpById() {
 
-        Employee empTest= new Employee(12,"sdfsd",3432,"fdsf","ewrwr","asdas");
+        Employee empTest= new Employee(12,"sdfsd",3432,"fdsf","ewrwr","asdas",new Department(1, "CS","Banglore"));
 
              //  empTest.setEmpId(12);
              //  empTest.setEmpName("Ankur");
@@ -86,7 +87,7 @@ class EmployeeServiceImplTest {
 
     @Test
     void updateEmployee() {
-        Employee empTest= new Employee(12,"sdfsd",3432,"fdsf","ewrwr","asdas");
+        Employee empTest= new Employee(12,"sdfsd",3432,"fdsf","ewrwr","asdas",new Department(1, "CS","Banglore"));
         repo.save(empTest);
         empTest.setEmpName("sssss");
         empTest.setEmpNum(342);
@@ -101,7 +102,7 @@ class EmployeeServiceImplTest {
     @Test
     void deleteEmployee() {
 
-        Employee empTest= new Employee(12,"sdfsd",3432,"fdsf","ewrwr","asdas");
+        Employee empTest= new Employee(12,"sdfsd",3432,"fdsf","ewrwr","asdas",new Department(1, "CS","Banglore"));
         repo.save(empTest);
         repo.deleteById(empTest.getEmpId());
 

@@ -1,10 +1,7 @@
 package com.webapp.Webapp.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Employee {
@@ -20,21 +17,31 @@ public class Employee {
 
     private String password;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="deptId")
+    private Department department;
+
+
+
     public Employee() {
 
     }
 
 
 
-    public Employee(int empId, String empName, long empNum, String empCity,String username, String password) {
+
+
+
+
+    public Employee(int empId, String empName, long empNum, String empCity, String username, String password, Department department) {
         this.empId = empId;
         this.empName = empName;
         this.empNum = empNum;
         this.empCity = empCity;
         this.username = username;
         this.password = password;
+        this.department = department;
     }
-
 
     public int getEmpId() {
         return empId;
@@ -84,6 +91,14 @@ public class Employee {
         this.empCity = empCity;
     }
 
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
 
     @Override
     public String toString() {
@@ -92,11 +107,10 @@ public class Employee {
                 ", empName='" + empName + '\'' +
                 ", empNum=" + empNum +
                 ", empCity='" + empCity + '\'' +
-                "username='" + username + '\'' +
+                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", department=" + department +
                 '}';
     }
-
-
-    }
+}
 
